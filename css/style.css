@@ -56,12 +56,12 @@ footer {
   margin: 2px;
 }
 
-footer .column {
+.column {
   float: left;
-  width: 33.33%;
+  width: 50%;
 }
 
-footer .row {
+.row {
   margin-top: 1%;
 }
 
@@ -152,3 +152,11 @@ div.desc {
   text-align: center;
 }
 
+li:hover {
+font-weight:bold;
+text-decoration:underline;
+}
+
+#activeKeyWordsDiv {
+background-color: #d24dff;
+}

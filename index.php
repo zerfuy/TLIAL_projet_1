@@ -34,45 +34,22 @@
 
         <div id="tri2">
             <h2>Recherche par mots clés : </h2>
-            <div class="grid-container" id="sortingPrice">
-                <input type="text" name="motCle">
-                <br>
-                <button class="grid-item" type="button" onclick="" id="rechercher">Rechercher</button>
+            <div class="grid-container">
+                <input type="text" id="motCle" onkeyup="keyWordSearchUpdate();">
+                <button class="grid-item" type="button" id="search">Rechercher</button>
+            </div>
+            <div class="row">
+                <div id="suggestionsDiv" class="column">
+
+                </div>
+                <div id="activeKeyWordsDiv" class="column" background-color=#00b27>
+                </div>
             </div>
         </div>
     </div>
     <br>
   </div>
   <div id="mainsection">
-
-<?php
-    $host = '127.0.0.1';
-    $db   = 'tli';
-    $user = 'root';
-    $pass = '';
-    $charset = 'utf8mb4';
-
-    $dsn = "mysql:host=$host;dbname=$db;charset=$charset";
-    $options = [
-        PDO::ATTR_ERRMODE            => PDO::ERRMODE_EXCEPTION,
-        PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC,
-        PDO::ATTR_EMULATE_PREPARES   => false,
-    ];
-    try {
-         $pdo = new PDO($dsn, $user, $pass, $options);
-    } catch (\PDOException $e) {
-         throw new \PDOException($e->getMessage(), (int)$e->getCode());
-    }
-
-    $stmt = $pdo->query("SELECT name FROM keywords");
-    while ($row = $stmt->fetch())
-    {
-        echo nl2br ($row['name'] . "\n");
-    }
-
-?>
-
-    
     <div id="mainContainer">
     </div>
   </div>
@@ -85,6 +62,7 @@
 </footer>
 
 <script src="js/navMenu.js"></script>
+<script src="js/accueil.js"></script>
    
 </body>
 </html> 
