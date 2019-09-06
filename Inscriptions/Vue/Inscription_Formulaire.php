@@ -3,14 +3,14 @@
 	<head>
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<meta charset="UTF-8">
-		<link href="css/style.css" rel="stylesheet" type="text/css" />
+		<link href="../../css/style.css" rel="stylesheet" type="text/css" />
 		<title>Incription</title>
 	</head>
 	<body>
 
 	        <div id="Inscription">
 	            <h2>Inscription </h2>
-	            <form method="POST" action="Inscription_Controleur.php">
+	            <form method="POST" action="../Inscription_Controleur.php">
 	            	<label for="name">Nom : </label>
 	            	<input type="text" name="Name" id="Name" required="">
 	            	<label for="FirstName">Prénom : </label>

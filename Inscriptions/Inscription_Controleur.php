@@ -1,7 +1,7 @@
 <?php
 
-	include('Inscription_Modèle_Connexion_BDD.php');
-	include('Inscription_Check.php');
+	include('Modele/Inscription_Connexion_BDD.php');
+	include('Modele/Inscription_Check.php');
 	$Name = $_POST['Name'];
 	$FirstName = $_POST['FirstName'];
 	$Login = $_POST['Login'];
@@ -10,7 +10,6 @@
 	$PDO = Connexion_BDD();
 	$DATA = Check_User($PDO);
 
-	var_dump($DATA);
 
 ?>
 
