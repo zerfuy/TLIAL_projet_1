@@ -15,23 +15,21 @@
 		  	<a href="./Informations.php" id="linkInformations">Informations</a> 
 		</div>
 
-		<main id="main">
   		<div id="menubar">
     		<span  id="openMenuBtn" onclick="openNav()">&#9776; Menu</span>
   		</div>
-
-  		<div id="headContainer">
 	        <div id="Inscription">
 	            <h2>Inscription </h2>
-	            <div class="grid-container" id="sortingPrice">
-	                <label>Inscription : </label>
-		                <select>
-		                    <option>Nom :</option>
-		                    
-		                </select>
-	                </label>
-	            </div>
+	            <form method="POST">
+	            	<label for="name">Nom : </label>
+	            	<input type="text" name="Name" id="Name">
+	            	<label for="firstname">Prénom : </label>
+	            	<input type="text" name="Firstname" id="Firstname">
+	            	<label for="Login">Nom d'utilisateur : </label>
+	            	<input type="text" name="Login" id="Login">
+	            	<label for="name">Mot de Passe : </label>
+	            	<input type="Passe" name="Password" id="Password">	            		            	
+	            </form>
 	        </div>
-	    </div>   
 	</body>
 </html>
