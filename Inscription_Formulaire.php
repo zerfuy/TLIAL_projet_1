@@ -10,7 +10,7 @@
 
 	        <div id="Inscription">
 	            <h2>Inscription </h2>
-	            <form method="POST" target="Inscription_Controleur.php">
+	            <form method="POST" action="Inscription_Controleur.php">
 	            	<label for="name">Nom : </label>
 	            	<input type="text" name="Name" id="Name" required="">
 	            	<label for="firstname">Prénom : </label>
