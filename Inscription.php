@@ -8,16 +8,6 @@
 	</head>
 	<body>
 
-		<div id="Sidenav1" class="sidenav">
- 			<a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-			<a href="./index.php" id="linkAccueil">Accueil</a>
-		  	<a href="./Connexion.php" id="linkConnexion">Connexion</a>
-		  	<a href="./Informations.php" id="linkInformations">Informations</a> 
-		</div>
-
-  		<div id="menubar">
-    		<span  id="openMenuBtn" onclick="openNav()">&#9776; Menu</span>
-  		</div>
 	        <div id="Inscription">
 	            <h2>Inscription </h2>
 	            <form method="POST">
@@ -28,7 +18,7 @@
 	            	<label for="Login">Nom d'utilisateur : </label>
 	            	<input type="text" name="Login" id="Login">
 	            	<label for="name">Mot de Passe : </label>
-	            	<input type="Passe" name="Password" id="Password">	            		            	
+	            	<input type="Password" name="Pass" id="Pass">	            		            	
 	            </form>
 	        </div>
 	</body>
