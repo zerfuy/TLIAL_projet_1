@@ -19,5 +19,19 @@
   		<div id="menubar">
     		<span  id="openMenuBtn" onclick="openNav()">&#9776; Menu</span>
   		</div>
+
+  		<div id="headContainer">
+	        <div id="Inscription">
+	            <h2>Inscription </h2>
+	            <div class="grid-container" id="sortingPrice">
+	                <label>Inscription : </label>
+		                <select>
+		                    <option>Nom :</option>
+		                    
+		                </select>
+	                </label>
+	            </div>
+	        </div>
+	    </div>   
 	</body>
 </html>
