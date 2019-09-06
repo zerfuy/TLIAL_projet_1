@@ -7,8 +7,8 @@
 		$pass = 'write';
 		$charset = 'utf8mb4';
 
-		$dsn = "mysql:host=$host;dbname=$db;charset=$charset";
-		$pdo = new PDO($dsn, $user, $pass)
+		$dsn = "mysql:host=$host;dbname=$dbname;charset=$charset";
+		$pdo = new PDO($dsn, $user, $pass);
 
 		return $pdo;
 	}
