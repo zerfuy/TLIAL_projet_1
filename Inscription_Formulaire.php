@@ -10,15 +10,16 @@
 
 	        <div id="Inscription">
 	            <h2>Inscription </h2>
-	            <form method="POST">
+	            <form method="POST" target="Inscription_Controleur.php">
 	            	<label for="name">Nom : </label>
-	            	<input type="text" name="Name" id="Name">
+	            	<input type="text" name="Name" id="Name" required="">
 	            	<label for="firstname">Prénom : </label>
-	            	<input type="text" name="Firstname" id="Firstname">
+	            	<input type="text" name="Firstname" id="Firstname" required="">
 	            	<label for="Login">Nom d'utilisateur : </label>
-	            	<input type="text" name="Login" id="Login">
+	            	<input type="text" name="Login" id="Login" required="">
 	            	<label for="name">Mot de Passe : </label>
-	            	<input type="Password" name="Pass" id="Pass">	            		            	
+	            	<input type="Password" name="Pass" id="Pass" required="">
+	            	<input type="submit" name="Send" id="Send">	            		            	
 	            </form>
 	        </div>
 	</body>
