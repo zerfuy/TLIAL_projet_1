@@ -42,7 +42,7 @@ function createActiveKeyWordsList() {
         list.appendChild(item);
     }
 
-    suggestionsDiv.appendChild(list);
+    activeKeyWordsDiv.appendChild(list);
 
 }
 
