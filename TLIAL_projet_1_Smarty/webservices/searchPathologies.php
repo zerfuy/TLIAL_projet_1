@@ -40,6 +40,7 @@
                                     SELECT idS from symptome WHERE idS in (
                                         SELECT idS from keysympt where idK in(
                                             SELECT idK from keywords WHERE name in (" .$t. ")))))");
+        
         while ($row = $stmt->fetch()){
             array_push($pathos, $row);
         }
