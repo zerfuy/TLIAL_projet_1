@@ -9,8 +9,8 @@
 	$Pass = $_POST['Pass'];
 
 	$PDO = Connexion_BDD();
-	$USER = ADD_User($PDO,$Login,$Name,$FirstName,$Pass);
-	print_r($USER);
-
+	ADD_User($PDO,$Login,$Name,$FirstName,$Pass);
+	$res = Check_User($PDO,$login);
+	print_r($res);
 ?>
 
