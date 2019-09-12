@@ -121,11 +121,14 @@ function createPathoList(arr) {
         PathosDiv.removeChild(PathosDiv.firstChild);
     }
     var list = document.createElement('ul');
-    list.setAttribute("id", "suggestions");
+    list.setAttribute("id", "PathosLisrt");
 
-    var imax = 10;
+    var imax = 200;
 
     for (var i = 0; i < imax; i++) {
+        if (arr[i] == undefined) {
+            break;
+        }
         // Create the list item:
         var item = document.createElement('li');
         // Set its contents:
