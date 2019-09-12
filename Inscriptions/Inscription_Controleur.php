@@ -10,7 +10,14 @@
 
 	$PDO = Connexion_BDD();
 	ADD_User($PDO,$Login,$Name,$FirstName,$Pass);
-	$res = Check_User($PDO,$login);
-	print_r($res);
+	$res = Check_User($PDO,$Login);
+	if($res == TRUE)
+	{
+		echo "Utilisateur Existant";
+	}
+	else
+	{
+		echo "Une erreur c'est produite";
+	}
 ?>
 

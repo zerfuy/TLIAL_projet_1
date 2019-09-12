@@ -7,8 +7,16 @@
 
 		if($res == TRUE)
 		{
-			$data = $sth->fetchall();
-			return $data;
+			$data = $sth->fetch(PDO::FETCH_ASSOC);
+
+			if(!$data)
+			{
+				return FALSE;
+			}
+			else
+			{
+				return TRUE;
+			}
 		}
 	}
 ?>
