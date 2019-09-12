@@ -13,11 +13,11 @@
 	$res = Check_User($PDO,$Login);
 	if($res == TRUE)
 	{
-		header('Location: Vue/Inscription_Reussie');
+		header('Location: Vue/Inscription_Reussie.php');
 	}
 	else
 	{
-		header('Location: Vue/Inscription_Echouer');
+		header('Location: Vue/Inscription_Echouer.php');
 	}
 ?>
 
