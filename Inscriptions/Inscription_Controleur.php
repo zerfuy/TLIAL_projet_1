@@ -13,11 +13,11 @@
 	$res = Check_User($PDO,$Login);
 	if($res == TRUE)
 	{
-		echo "Utilisateur Existant";
+		header('Location: Vue/Inscription_Reussie');
 	}
 	else
 	{
-		echo "Une erreur c'est produite";
+		header('Location: Vue/Inscription_Echouer');
 	}
 ?>
 
