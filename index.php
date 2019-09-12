@@ -39,10 +39,16 @@
                 <button class="grid-item" type="button" id="search">Rechercher</button>
             </div>
             <div class="row">
-                <div id="suggestionsDiv" class="column">
-
+                <div class="column">
+                    <h2>Suggestions : </h2>
+                    <div id="suggestionsDiv" class="column">
+                    </div>
                 </div>
-                <div id="activeKeyWordsDiv" class="column" background-color=#00b27>
+                
+                <div class="column">
+                    <h2>Mots clés activés : </h2>
+                    <div id="activeKeyWordsDiv" class="column" background-color=#00b27>
+                    </div>
                 </div>
             </div>
         </div>
