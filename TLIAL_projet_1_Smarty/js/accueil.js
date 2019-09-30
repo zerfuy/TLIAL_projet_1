@@ -43,7 +43,7 @@ function createActiveKeyWordsList() {
     }
 
     activeKeyWordsDiv.appendChild(list);
-
+    searchPathologies();
 }
 
 function createSuggestionsList(arr) {

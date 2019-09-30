@@ -13,6 +13,7 @@
   <a href="./index.php" id="linkAccueil">Accueil</a>
   <a href="./Connexion.php" id="linkConnexion">Connexion</a>
   <a href="./Informations.php" id="linkInformations">Informations</a> 
+  <a href="./TIDAL-TP-Nouhaila/filter">Pathologie</a> 
 </div>
 
 <main id="main">

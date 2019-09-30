@@ -37,7 +37,7 @@
             <h2>Recherche par mots clés : </h2>
             <div class="grid-container">
                 <input type="text" id="motCle" onkeyup="keyWordSearchUpdate();">
-                <button class="grid-item" type="button" id="search" onclick="searchPathologies();">Rechercher</button>
+                
             </div>
             <div class="row">
                 <div class="column">

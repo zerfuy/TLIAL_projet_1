@@ -3,6 +3,7 @@
 	include('Modele/Inscription_Connexion_BDD.php');
 	include('Modele/Inscription_Check.php');
 	include('Modele/Inscription_BDD.php');
+	$Name = $_POST['Name'];
 
 	$Name = $_POST['Name'];
 	$FirstName = $_POST['FirstName'];
@@ -11,10 +12,12 @@
 	$Mail = $_POST['Email'];
 
 	$PDO = Connexion_BDD();
-	ADD_User($PDO,$Login,$Name,$FirstName,$Pass);
+	//ADD_User($PDO,$Login,$Name,$FirstName,$Pass);
 	$res = Check_User($PDO,$Login);
-	if($res == TRUE)
+
+	if($res == FALSE)
 	{
+		ADD_User($PDO,$Login,$Name,$FirstName,$Pass);
 		header('Location: Vue/Inscription_Reussie.php');
 	}
 	else

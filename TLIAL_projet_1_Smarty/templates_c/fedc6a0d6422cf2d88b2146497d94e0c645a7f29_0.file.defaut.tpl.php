@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.33, created on 2019-09-12 16:15:53
+/* Smarty version 3.1.33, created on 2019-09-12 16:53:41
   from 'C:\wamp64\www\TLIAL_projet_1\TLIAL_projet_1_Smarty\templates\defaut.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.33',
-  'unifunc' => 'content_5d7a6f397be280_55252216',
+  'unifunc' => 'content_5d7a7815414044_23062944',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'fedc6a0d6422cf2d88b2146497d94e0c645a7f29' => 
     array (
       0 => 'C:\\wamp64\\www\\TLIAL_projet_1\\TLIAL_projet_1_Smarty\\templates\\defaut.tpl',
-      1 => 1568303652,
+      1 => 1568307217,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_5d7a6f397be280_55252216 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5d7a7815414044_23062944 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -60,7 +60,7 @@ function content_5d7a6f397be280_55252216 (Smarty_Internal_Template $_smarty_tpl)
             <h2>Recherche par mots clés : </h2>
             <div class="grid-container">
                 <input type="text" id="motCle" onkeyup="keyWordSearchUpdate();">
-                <button class="grid-item" type="button" id="search" onclick="searchPathologies();">Rechercher</button>
+                
             </div>
             <div class="row">
                 <div class="column">
