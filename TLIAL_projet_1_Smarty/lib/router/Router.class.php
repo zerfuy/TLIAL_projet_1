@@ -12,7 +12,9 @@ class Router
 	private $action = "";
 	const mapTpl = array(
 		"defaut" => "templates/defaut.tpl",
-		"inscription" => "templates/Inscription_Formulaire.tpl",
+		"Inscription_Formulaire" => "templates/Inscription_Formulaire.tpl",
+		"Inscription_Echouer" => "templates/Inscription_Echouer.tpl",
+		"Inscription_Reussie" => "templates/Inscription_Reussie.tpl",
 		"connexion" => "templates/connexion.tpl",
 	);
 
