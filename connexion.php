@@ -22,6 +22,7 @@ if(isset($_POST['formconnexion']))
       $requser = $bdd->prepare("SELECT * FROM USERS WHERE email = ? AND password = ?");
       $requser->execute(array($mailconnect, $mdpconnect));
       $userexist = $requser->rowCount();
+      echo $userexist;
       if($userexist == 1) 
       {
          $userinfo = $requser->fetch();
