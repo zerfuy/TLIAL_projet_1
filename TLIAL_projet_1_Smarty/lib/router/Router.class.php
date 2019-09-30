@@ -32,7 +32,7 @@ class Router
 		}
 
 		return $ret;
-
+	}
 
 
 }
