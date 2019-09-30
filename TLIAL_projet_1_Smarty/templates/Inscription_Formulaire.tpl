@@ -9,7 +9,7 @@
 	<body>
 	    <div id="Inscription">
 	    	<h2>Inscription </h2>
-	        <form method="POST" action="../Inscription_Controleur.php"> <!--Lorsque je clique sur Valider ca se redirige vers le Inscription_Controleur-->
+	        <form method="POST" action="Inscription_Controleur.php">
 	            <label for="name">Nom : </label>
 	            <input type="text" name="Name" id="Name" required="">
 	           	<label for="FirstName">Prénom : </label>

@@ -39,7 +39,7 @@ if(isset($_POST['formconnexion']))
   			vous êtes maintenant connecté!</p>
   			<p>Cliquez <a href="./index.php">ici</a> 
   			pour revenir à la page d accueil</p>';  
-        echo $message;
+        
 	    }
 	 
       $requser->CloseCursor();
@@ -75,6 +75,10 @@ else
          <?php
          if(isset($erreur)) {
             echo '<font color="red">'.$erreur."</font>";
+         }
+         else
+         {
+          echo $message;
          }
          ?>
       </div>
