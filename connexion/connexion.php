@@ -1,39 +1,61 @@
 <?php
 
 session_start();
-$message='';
-$bdd = new PDO('mysql:host=127.0.0.1;dbname=phpmyadmin', 'phpmyadmin', 'tp');
+    $host = '127.0.0.1';
+    $dbname = 'TLI';
+    $user = 'user_write';
+    $pass = 'write';
+    $charset = 'utf8mb4';
+  
+    $dsn = "mysql:host=$host;dbname=$dbname;charset=$charset";
+    $bdd = new PDO($dsn, $user, $pass);
+    $message=''; //test connexion
+//$bdd = new PDO('mysql:host=127.0.0.1;dbname=phpmyadmin', 'phpmyadmin', 'tp');
 
-if(isset($_POST['formconnexion'])) {
+if(isset($_POST['formconnexion'])) 
+{
    $mailconnect = htmlspecialchars($_POST['mailconnect']);
    $mdpconnect = ($_POST['mdpconnect']);
-   //var_dump($_POST);
-   if(!empty($mailconnect) AND !empty($mdpconnect)) {
-      $requser = $bdd->prepare("SELECT * FROM users WHERE email = ? AND mdp = ?");
+   //var_dump($_POST); // test debug 
+   if(!empty($mailconnect) AND !empty($mdpconnect)) 
+   {
+      $requser = $bdd->prepare("SELECT * FROM USERS WHERE email = ? AND password = ?");
       $requser->execute(array($mailconnect, $mdpconnect));
       $userexist = $requser->rowCount();
-      if($userexist == 1) {
-         $userinfo = $requser->fetch();
-         $_SESSION['id'] = $userinfo['id'];
-         $_SESSION['pseudo'] = $userinfo['pseudo'];
-         $_SESSION['email'] = $userinfo['email'];
 
+      if($userexist == 1) 
+      {
+         $userinfo = $requser->fetch();
+         $_SESSION['id'] = $userinfo['id_user'];
+         $_SESSION['login'] = $userinfo['login'];
+         $_SESSION['email'] = $userinfo['email'];
+         $_SESSION['name'] = $userinfo['name'];
+         $_SESSION['first_name'] = $userinfo['first_name'];
+         
+            
         // header("Location: profil.php?id=".$_SESSION['id']);
+          
+  	    $message = '<p>Bienvenue '.$userinfo['login'].', 
+  			vous êtes maintenant connecté!</p>
+  			<p>Cliquez <a href="./index.php">ici</a> 
+  			pour revenir à la page d accueil</p>';  
+        echo $message;
+	    }
+	 
+      $requser->CloseCursor();
+    }
+    else 
+    {
+      $erreur = "Mauvais mail ou mot de passe !";
+    }
+
+}   
+else 
+{
+  $erreur = "Tous les champs doivent être complétés !";
+}
 	
-	$message = '<p>Bienvenue '.$userinfo['pseudo'].', 
-                        vous êtes maintenant connecté!</p>
-                        <p>Cliquez <a href="./index.php">ici</a> 
-                        pour revenir à la page d accueil</p>';  
-        
-       
-//
-    } else {
-         $erreur = "Mauvais mail ou mot de passe !";
-      }
-   } else {
-      $erreur = "Tous les champs doivent être complétés !";
-   }
-	}
+
 ?>
 <html>
    <head>
@@ -54,11 +76,7 @@ if(isset($_POST['formconnexion'])) {
          if(isset($erreur)) {
             echo '<font color="red">'.$erreur."</font>";
          }
-	else{
-	echo $message;
-	}
-	 ?>
+         ?>
       </div>
    </body>
 </html>
-
