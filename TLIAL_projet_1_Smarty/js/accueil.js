@@ -1,6 +1,32 @@
 activeKeyWords = [];
+activeType = "";
 
-function keyWordSearchUpdate() {
+document.addEventListener("DOMContentLoaded", function() {init();});
+
+function init() {
+
+    var typesList = document.getElementById('typesDiv');
+    var xhttp = new XMLHttpRequest();
+    // get all types of pathologies
+    xhttp.open("GET", "webservices/getPathoTypes.php", false);
+    xhttp.send();
+    var array = JSON.parse(xhttp.responseText);
+    for (var i = 0; i < 20; i++) {
+        if (array[i] == undefined) {
+            break;
+        }
+        var item = document.createElement('option');
+        // Set contents:
+        item.setAttribute("id", array[i]);
+        item.value = array[i];
+        item.innerHTML = array[i];
+        
+        typesList.appendChild(item);
+    }
+} 
+
+
+function SearchUpdate() {
     var xhttp = new XMLHttpRequest();
     //xhttp.onreadystatechange = function() {
     //    if (this.readyState == 4 && this.status == 200) {
@@ -88,12 +114,12 @@ function createSuggestionsList(arr) {
 
 function setActive(name) {
     activeKeyWords.push(name);
-    keyWordSearchUpdate();
+    SearchUpdate();
 }
 
 function setInactive(pos) {
     activeKeyWords.splice(pos, 1);
-    keyWordSearchUpdate();
+    SearchUpdate();
 }
 
 function isKeyWordActive(name) {
@@ -101,8 +127,14 @@ function isKeyWordActive(name) {
 }
 
 function searchPathologies() {
+    var typesList = document.getElementById('typesDiv');
+    var strUser = typesList.options[typesList.selectedIndex].text;
+    if (typesList.selectedIndex == 0)
+        activeType = "";
+    else
+        activeType = strUser;
     var xhttp = new XMLHttpRequest();
-    xhttp.open("GET", "webservices/searchPathologies.php?activeKeyWords="+activeKeyWords, false);
+    xhttp.open("GET", "webservices/searchPathologies.php?activeKeyWords="+activeKeyWords+"&type="+activeType, false);
     xhttp.send();
     var array = JSON.parse(xhttp.responseText);
     console.log(array);
@@ -143,3 +175,4 @@ function createPathoList(arr) {
     }
     PathosDiv.appendChild(list);
 }
+

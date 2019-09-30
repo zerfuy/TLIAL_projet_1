@@ -20,7 +20,7 @@ if(isset($_GET["action"]) && check($_GET["action"],"chaineAlpha")==1){
 
 $router = new Router($smarty,$action);
 
-$tpl = $router->processAction();
+$tpl = $router->processAction($action);
 
 $smarty->display($tpl);
 ?>

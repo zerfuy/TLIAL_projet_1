@@ -20,27 +20,42 @@
         $pathos = [];
 
         if ($_GET['activeKeyWords'] == "") {
-            echo (json_encode($pathos));
-            return;
-        }
+            if ($_GET['type'] == ""){
+                echo (json_encode($pathos));
+                return;
+            }
+        } else {
+            $s = explode( ',', $_GET['activeKeyWords']);
+            $t = "";
+            $count = count($s);
 
-        $s = explode( ',', $_GET['activeKeyWords']);
-        $t = "";
-        $count = count($s);
-
-        foreach($s as $v){
-            $t = $t . "'" . $v . "'";
-            if (--$count > 0) {
-                $t = $t . ", ";
+            foreach($s as $v){
+                $t = $t . "'" . $v . "'";
+                if (--$count > 0) {
+                    $t = $t . ", ";
+                }
             }
         }
 
-        $stmt = $pdo->query("SELECT idp, mer, type, 'desc' FROM patho WHERE idp in (
-                                SELECT idp from symptpatho WHERE idS in (
-                                    SELECT idS from symptome WHERE idS in (
-                                        SELECT idS from keysympt where idK in(
-                                            SELECT idK from keywords WHERE name in (" .$t. ")))))");
         
+        if ($_GET['type'] == "" && $_GET['activeKeyWords'] != ""){
+            $stmt = $pdo->query("SELECT idp, mer, type, 'desc' FROM patho WHERE idp in (
+                                    SELECT idp from symptpatho WHERE idS in (
+                                        SELECT idS from symptome WHERE idS in (
+                                            SELECT idS from keysympt where idK in(
+                                                SELECT idK from keywords WHERE name in (" .$t. ")))))");
+        } else if ($_GET['type'] != "" && $_GET['activeKeyWords'] != "") {
+            $stmt = $pdo->query("SELECT idp, mer, type, 'desc' FROM patho WHERE type LIKE " . $_GET['type'] . " AND idp in (
+                                    SELECT idp from symptpatho WHERE idS in (
+                                        SELECT idS from keysympt where idK in(
+                                                SELECT idK from keywords WHERE name in (" .$t. ")))))");
+        } else if ($_GET['type'] != "" && $_GET['activeKeyWords'] == "") {
+            $stmt = $pdo->query("SELECT idp, mer, type, 'desc' FROM patho WHERE type LIKE " . $_GET['type'] . " AND idp in (
+                                    SELECT idp from symptpatho WHERE idS in (
+                                        SELECT idS from symptome WHERE idS in (
+                                            SELECT idS from keysympt)))");
+        }
+
         while ($row = $stmt->fetch()){
             array_push($pathos, $row);
         }

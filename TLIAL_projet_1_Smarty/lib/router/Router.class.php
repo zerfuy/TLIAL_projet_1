@@ -30,9 +30,7 @@ class Router
 		}
 
 		return $ret;
-
-
-
+	}
 }
 
 ?>
