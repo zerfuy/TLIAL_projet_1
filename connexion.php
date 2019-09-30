@@ -7,7 +7,7 @@ session_start();
     $pass = 'write';
     $charset = 'utf8mb4';
   
-    $dsn = "mysql:host=$host;dbname=$db;charset=$charset";
+    $dsn = "mysql:host=$host;dbname=$dbname;charset=$charset";
     $bdd = new PDO($dsn, $user, $pass);
     $message=''; //test connexion
 //$bdd = new PDO('mysql:host=127.0.0.1;dbname=phpmyadmin', 'phpmyadmin', 'tp');
