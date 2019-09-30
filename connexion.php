@@ -19,7 +19,7 @@ if(isset($_POST['formconnexion']))
    //var_dump($_POST); // test debug 
    if(!empty($mailconnect) AND !empty($mdpconnect)) 
    {
-      $requser = $bdd->prepare("SELECT * FROM users WHERE email = ? AND password = ?");
+      $requser = $bdd->prepare("SELECT * FROM USERS WHERE email = ? AND password = ?");
       $requser->execute(array($mailconnect, $mdpconnect));
       $userexist = $requser->rowCount();
       if($userexist == 1) 
