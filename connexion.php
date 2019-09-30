@@ -12,15 +12,18 @@ session_start();
     $message=''; //test connexion
 //$bdd = new PDO('mysql:host=127.0.0.1;dbname=phpmyadmin', 'phpmyadmin', 'tp');
 
-if(isset($_POST['formconnexion'])) {
+if(isset($_POST['formconnexion'])) 
+{
    $mailconnect = htmlspecialchars($_POST['mailconnect']);
    $mdpconnect = ($_POST['mdpconnect']);
    //var_dump($_POST); // test debug 
-   if(!empty($mailconnect) AND !empty($mdpconnect)) {
+   if(!empty($mailconnect) AND !empty($mdpconnect)) 
+   {
       $requser = $bdd->prepare("SELECT * FROM users WHERE email = ? AND password = ?");
       $requser->execute(array($mailconnect, $mdpconnect));
       $userexist = $requser->rowCount();
-      if($userexist == 1) {
+      if($userexist == 1) 
+      {
          $userinfo = $requser->fetch();
          $_SESSION['id'] = $userinfo['id_user'];
          $_SESSION['login'] = $userinfo['login'];
@@ -35,19 +38,22 @@ if(isset($_POST['formconnexion'])) {
   			vous êtes maintenant connecté!</p>
   			<p>Cliquez <a href="./index.php">ici</a> 
   			pour revenir à la page d accueil</p>';  
-	   }
+	    }
 	 
-   $requser->CloseCursor();
-   }
+      $requser->CloseCursor();
+    }
     else 
     {
-         $erreur = "Mauvais mail ou mot de passe !";
+      $erreur = "Mauvais mail ou mot de passe !";
     }
-   } else {
-      $erreur = "Tous les champs doivent être complétés !";
-   }
-	
+
+}   
+else 
+{
+  $erreur = "Tous les champs doivent être complétés !";
 }
+	
+
 ?>
 <html>
    <head>
