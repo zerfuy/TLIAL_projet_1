@@ -17,7 +17,7 @@
 
 	if($res == FALSE)
 	{
-		ADD_User($PDO,$Login,$Name,$FirstName,$Pass);
+		ADD_User($PDO,$Login,$Name,$FirstName,$Mail,$Pass);
 		header('Location: Vue/Inscription_Reussie.php');
 	}
 	else
