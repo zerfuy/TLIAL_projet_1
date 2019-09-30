@@ -16,9 +16,10 @@
 	            <input type="text" name="FirstName" id="FirstName" required="">
 	            <label for="Login">Nom d'utilisateur : </label>
 	            <input type="text" name="Login" id="Login" required="">
+	            <label for="Email">Email : </label>
+	            <input type="email" name="Email" id="Email" required="">	
 	            <label for="name">Mot de Passe : </label>
-	           	<input type="Password" name="Pass" id="Pass" required="">
-	           	<input type="email" name="Email" id="Email" required="">	           	
+	           	<input type="Password" name="Pass" id="Pass" required="">           	
 	            <input type="submit" name="Send" id="Send">	            		            	
 	        </form>
 	    </div>
