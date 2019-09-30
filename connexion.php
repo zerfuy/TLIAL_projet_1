@@ -31,16 +31,18 @@ if(isset($_POST['formconnexion'])) {
             
         // header("Location: profil.php?id=".$_SESSION['id']);
           
-	    $message = '<p>Bienvenue '.$userinfo['login'].', 
-			vous êtes maintenant connecté!</p>
-			<p>Cliquez <a href="./index.php">ici</a> 
-			pour revenir à la page d accueil</p>';  
-	}
-	}
-    $requser->CloseCursor();
-      } else {
+  	    $message = '<p>Bienvenue '.$userinfo['login'].', 
+  			vous êtes maintenant connecté!</p>
+  			<p>Cliquez <a href="./index.php">ici</a> 
+  			pour revenir à la page d accueil</p>';  
+	   }
+	 
+   $requser->CloseCursor();
+   }
+    else 
+    {
          $erreur = "Mauvais mail ou mot de passe !";
-      }
+    }
    } else {
       $erreur = "Tous les champs doivent être complétés !";
    }
