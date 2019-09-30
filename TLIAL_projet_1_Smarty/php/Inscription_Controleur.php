@@ -1,8 +1,14 @@
 <?php
 
-	include('Modele/Inscription_Connexion_BDD.php');
-	include('Modele/Inscription_Check.php');
-	include('Modele/Inscription_BDD.php');
+	require '../lib/smarty-3.1.33/libs/Smarty.class.php';
+	require '../lib/router/Router.class.php';
+	require '../lib/checkers/checkers.php';
+
+
+	include('../lib/bd/Inscription_Connexion_BDD.php');
+	include('../lib/checkers/Inscription_Check.php');
+	include('../lib/login/Inscription_BDD.php');
+	
 	$Name = $_POST['Name'];
 
 	$Name = $_POST['Name'];
