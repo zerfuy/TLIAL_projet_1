@@ -12,7 +12,9 @@ class Router
 	private $action = "";
 	const mapTpl = array(
 		"defaut" => "templates/defaut.tpl",
-		"inscription" => "templates/Inscription_Formulaire.tpl",
+		"Inscription_Formulaire" => "templates/Inscription_Formulaire.tpl",
+		"Inscription_Echouer" => "templates/Inscription_Echouer.tpl",
+		"Inscription_Reussie" => "templates/Inscription_Reussie.tpl",
 		"connexion" => "templates/connexion.tpl",
 	);
 
@@ -23,11 +25,8 @@ class Router
 		}
 	}
 
-	function processAction($action){
+	function processAction(){
 		$ret = "templates/defaut.tpl";
-		if(isset(Router::mapTpl[$action])){
-				$ret = Router::mapTpl[$action];
-		}
 
 		return $ret;
 	}
