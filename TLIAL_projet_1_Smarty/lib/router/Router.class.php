@@ -25,14 +25,12 @@ class Router
 		}
 	}
 
-	function processAction($action){
+	function processAction(){
 		$ret = "templates/defaut.tpl";
-		if(isset(Router::mapTpl[$action])){
-				$ret = Router::mapTpl[$action];
-		}
 
 		return $ret;
 	}
+
 
 
 }

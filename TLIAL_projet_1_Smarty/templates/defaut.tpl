@@ -12,7 +12,7 @@
   <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
   <a href="?action=defaut" id="linkAccueil">Accueil</a>
   <a href="?action=connexion" id="linkConnexion">Connexion</a>
-  <a href="?action=Inscription_Formulaire" id="linkinscription">Inscription</a>
+  <a href="?action=inscription" id="linkinscription">Inscription</a>
   <a href="?action=information" id="linkInformations">Information</a> 
 </div>
 
