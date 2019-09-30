@@ -25,7 +25,6 @@ if(isset($_POST['formconnexion']))
 
       if($userexist == 1) 
       {
-         echo $userexist;
          $userinfo = $requser->fetch();
          $_SESSION['id'] = $userinfo['id_user'];
          $_SESSION['login'] = $userinfo['login'];
@@ -40,6 +39,7 @@ if(isset($_POST['formconnexion']))
   			vous êtes maintenant connecté!</p>
   			<p>Cliquez <a href="./index.php">ici</a> 
   			pour revenir à la page d accueil</p>';  
+        echo $message;
 	    }
 	 
       $requser->CloseCursor();
