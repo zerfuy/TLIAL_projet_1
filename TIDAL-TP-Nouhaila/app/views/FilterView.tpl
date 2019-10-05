@@ -1,25 +1,27 @@
 
 {include file='header.tpl'}
 
-<div class="filter-container">
+<div class="container">
     <h2>List Pathologie</h2>
 
-    <form action="{$project_path}/filter" method="post" id="filterForm"><!-- Post permet de ne pas afficher dans l'URL -->
+    <form class="form" action="{$project_path}/filter" method="post" id="filterForm"><!-- Post permet de ne pas afficher dans l'URL -->
+       
         <!--Tapper le nom de méridien  -->
         <input name="nom" value="" id="nom" placeholder="Le nom de méridien">
-        <!-- List des types des pathologies -->
-        <select name="type" id="type">
-            <option value="0" selected>Selectioner le type</option>
-            {foreach from=$pathologies item=$patho}
-                <option value="{$patho.type}">{$patho.type}</option>
+        <!-- categories -->
+        <select name="category" id="category">
+            <option value="0">Selectioner la categorie</option>
+            {foreach from=$categories item=$cat key=$index}
+                <option value="cat_{$index}">{$cat.name}</option>
             {/foreach}
         </select>
-        <!--lister des caractéristiques  -->
         <select name="caracteristique" id="caracteristique">
-            <option value="0" selected>Selectioner la caractéristique</option>
-            {foreach from=$caracts item=$crt}
-                <option value="{$crt}">{$crt}</option>
+        <option value="0">Selectioner le caractéristique</option>
+        {foreach from=$categories item=$cat key=$index}
+            {foreach from=$cat.values item=$val}
+                <option class="opt cat_{$index}" value="{$val}" style="display:none">{$val}</option>
             {/foreach}
+        {/foreach}
         </select>
         <!-- le bouton recherche -->
         <button type="submit">Recherche</button>
@@ -29,8 +31,6 @@
         {include file="FilterResult.tpl"}
     </div>
   </div>
-  <!-- On appelle la biliotheque JQUERY (Bibliotheque de JS)  -->
-  <script src="{$project_path}/public/js/jquery-3.4.1.min.js"></script>
   <script src="{$project_path}/public/js/filter.js"></script>
 
 {include file='footer.tpl'}

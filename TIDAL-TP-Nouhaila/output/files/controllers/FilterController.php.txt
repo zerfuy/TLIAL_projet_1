@@ -22,6 +22,7 @@ class Filter{
    
    $smarty = new Smarty();//on fait appel à la class SMARTY
    $smarty->setTemplateDir(__DIR__ . '/../views/');//définir le chemin des templates(Views)
+   $smarty->assign('project_path',$GLOBALS['project_path']);
    $smarty->assign('pathologies',$pathologies);// Smarty donne les paramètres à VIEW
 
    if(isset($_POST['nom']) || isset($_POST['type']) || isset($_POST['caracteristique'])){ //S'il y a une de ses paramètres
@@ -34,8 +35,6 @@ class Filter{
    
       $smarty->display('FilterView.tpl');//sinon dans la cas contraire on fait appel à toute la page (tabeau + caracterisques+ type)
    }
-
-    //include __DIR__ . "/../views/FilterView.php";//rentre dans view, tant qu'on est à l'intérieur de Controller
  }
 }
 

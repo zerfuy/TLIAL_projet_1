@@ -1,31 +1,106 @@
-.filter-container {
+body {
+    margin: 0;
+    font-family: arial;
+}
+
+.user-name {
+    display: block;
+    text-align: center;
+    background-color: #4CAF50;
+    margin: 0;
+    padding: 3px;
+    color: white;
+    font-family: monospace;
+}
+
+.user-name b {
+    text-transform: uppercase;
+}
+
+.container {
     margin: auto;
 }
-/* Style de titre */
-.filter-container h2 {
-    text-transform: uppercase;
-    border-bottom: 2px solid #2196F3;
-    padding-bottom: .5rem;
-    border-left: 1rem solid #2196F3;
-    padding-left: .5rem;
-    color: #2196F3;
-    padding-top: 10px;
+
+
+.container .cover{
+    background-image: url("../img/home-image.jpg");
+    background-position: 0px 60%;
+    background-size: cover;
+    width:100%;
+    padding: 50px 0;
+    min-height: 180px;
 }
-/* Form de filtrage (la partie grise sur la page où il y a le nom , type et caracteristique*/
-.filter-container form {
+
+
+
+/* Style de titre */
+
+.container h2 {
+    text-transform: uppercase;
+    padding-bottom: 5px;
+    border-left: 30px solid #374f5a;
+    padding-left: .5rem;
+    color: #374f5a;
+    padding-top: 5px;
+    margin: 10px 0;
+}
+
+/* .Form de filtrage (la partie grise sur la page oÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â¹ il y a le nom , type et caracteristique*/
+
+.container .form {
     padding: 1rem;
-    background-color: #eee;
+    background-color: rgba(238, 238, 238, 0.288);
     margin-bottom: 1rem;
     box-shadow: 0 0.25rem 0.25rem #00000044;
     box-sizing: border-box;
 }
+.container .form.login{
+    
+max-width: 300px;
+    
+margin: auto;
+    
+background-color: #ffffffa6;
+    
+margin: 27px auto;
+}
+.container .form.login input,
+.container .form.login button
+{
+
+width: 100%;
+
+box-sizing: border-box;
+
+margin-bottom: 5px;
+}
+.container .form .form-title {
+    color: #3c59bc;
+    border-left: 20px solid #3F51B5;
+    margin-bottom: 5px;
+    padding-left: 7px;
+}
+
+.info {
+    display: block;
+    color: orange;
+}
+
+.error {
+    display: block;
+    color: red;
+}
+
 /* le contour des 3 boutons et leurs mesures  */
-.filter-container form input, .filter-container form select {
-    padding: 0.35rem; 
+
+.container .form input, .container .form select {
+    padding: 0.35rem;
     min-width: 10rem;
 }
+
 /* Design du bouton Recherche */
-.filter-container form button {
+
+.container .form button {
     padding: 0.35rem;
     min-width: 10rem;
     color: white;
@@ -37,67 +112,97 @@
     transition: 1s;
     cursor: pointer;
 }
+
 /* Design du bouton Recherche, button:hover : une fois le survol de la souris sur recherhe */
-.filter-container form button:hover { 
+
+.container .form button:hover {
     background-position: right center;
 }
+
 /* design de tableau de resultat  */
-.filter-container table {
+
+.container table {
     border: 1px solid #ddd;
+    width: 100%;
 }
 
-.filter-container table tr td {
+.container table tr td {
     border-bottom: 1px solid #ddd;
     padding: 1rem .5rem;
 }
 
-.filter-container table tr th {
+.container table tr th {
     padding: .5rem;
     background-color: #efefef;
-} 
-
-
-
-
-
-
+}
 
 /* Menu */
 
-.sidenav {
-    height: 100%;
-    width: 0;
-    position: fixed;
-    top: 0;
-    left: 0;
-    background-color: #111;
-    overflow-x: hidden;
-    transition: 0.5s;
-    padding-top: 60px;
-  }
-  
-  .sidenav a {
-    padding: 8px 8px 8px 32px;
+.navbar {
+    display: flex;
+    justify-content: center;
+    background-color: #374f5a;
+    flex-wrap: wrap;
+    padding: 5px;
+    border-bottom: 1px #9b9b9b solid;
+    margin-bottom: 4px;
+}
+
+.navbar a {
+    color: #fafafa;
     text-decoration: none;
-    font-size: 22px;
-    color: #818181;
-    display: block;
-  }
-  
-  .sidenav a:hover {
-    color: #f1f1f1;
-  }
-  
-  .sidenav .closebtn {
-    top: 0;
-    position: absolute;
-    right: 10px;
-    font-size: 36px;
-    margin-left: 50px;
-  }
-  
-  
-  #openMenuBtn {
-    font-size:30px;
-    cursor:pointer;
-  }
+    font-weight: bold;
+    padding: 5px 8px;
+    margin: 0 5px;
+}
+
+.navbar a:hover,.navbar a.active {
+    background-color: #3F51B5;
+}
+
+.footer-menu {
+    background-color: #374f5a;
+    margin: 0;
+    padding: 10px;
+    color: #888;
+    text-align: center;
+}
+
+.footer-menu a {
+    color: #f0f0f0;
+    text-decoration: none;
+    margin-right: 10px;
+}
+
+.copyright {
+    text-align: center;
+    background-color: #ddd;
+    margin: 0;
+    padding: 5px;
+}
+
+.cards{
+
+display: flex;
+
+flex-wrap: wrap;
+
+background-color: #efefef;
+}
+.card{
+    
+box-shadow: 0 2px 5px 0 #00000022;
+    
+border-radius: 5px;
+    
+padding: 5px;
+    
+background-color: white;
+    
+flex: 1;
+    
+margin: 10px;
+    
+min-width: 300px;
+}
+.card h4{margin: 0px;padding: 5px;border-bottom: 5px solid #3f51b5;color: #3f51b5;}

@@ -1,3 +1,14 @@
+
+$('#category').on('change',function(){
+    var id  = $(this).val();
+    $('.opt').hide();
+    $('.'+id).show();
+    $("#caracteristique").val($("#caracteristique option:first").val());
+    getResult();
+});
+$('#category').val($("#category option:first").val());
+
+
 //Une fois qu'on clique sur le bouton recherche, on appelle la fonction getResult
 $('#filterForm').on('submit',function(e){ 
     e.preventDefault(); // permet de bloquer de rafraichir la page
@@ -17,15 +28,4 @@ function getResult(){
         $('#result').html(result);//afficher le tableau des résultats
     });
 }
-
-
-/* Menu */
-//Ouvre le menu de navigation
-function openNav() {
-    document.getElementById("Sidenav1").style.width = "250px";
-}
-  
-//Ferme le menu de navigation
-function closeNav() {
-    document.getElementById("Sidenav1").style.width = "0";
-}
+getResult();

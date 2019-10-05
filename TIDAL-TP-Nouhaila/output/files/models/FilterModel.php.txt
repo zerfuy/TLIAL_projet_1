@@ -21,7 +21,7 @@ class FilterModel{
         if($nom != "") $query .= " AND meridien.nom LIKE '%$nom%'"; // Si filtrer par nom 
         if($type != "0") $query .= " AND patho.type = '$type'";
         if($caracts != "0") $query .= " AND patho.desc LIKE '%$caracts%'";
-
+        $query .= " limit 20";
         $stmt = $this->conn->query($query);
         $pathologies = $stmt->fetchAll();
 
