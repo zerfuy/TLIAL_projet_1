@@ -2474,5 +2474,6 @@ CREATE TABLE IF NOT EXISTS `USERS` (
 	`login` varchar(20) UNIQUE NOT NULL,
 	`name` varchar(20) NOT NULL,
 	`first_name` varchar(20) NOT NULL,
+	`email` varchar(20) NOT NULL,
 	`password` varchar(20) NOT NULL
 );
