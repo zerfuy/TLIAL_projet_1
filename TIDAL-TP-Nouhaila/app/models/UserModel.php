@@ -28,9 +28,9 @@ class UserModel{
 
     function register($login,$pass,$fname,$lname){
         
-        if (!preg_match("/^[a-zA-Z ]*$/",$login) || strlen($login) < 3) return null;
-        if (!preg_match("/^[a-zA-Z ]*$/",$fname) || strlen($fname) < 3) return null;
-        if (!preg_match("/^[a-zA-Z ]*$/",$lname) || strlen($lname) < 3) return null;
+        if (!preg_match("/^[-|a-zA-Z ]*$/",$login) || strlen($login) < 3) return null;
+        if (!preg_match("/^[-|a-zA-Z ]*$/",$fname) || strlen($fname) < 3) return null;
+        if (!preg_match("/^[-|a-zA-Z ]*$/",$lname) || strlen($lname) < 3) return null;
         if (!preg_match("/(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[?\/<~#`!@$%^&*()+=}|:\";\',>{ -])/",$pass)) return 2;
         $hash = password_hash($pass, PASSWORD_DEFAULT); 
         

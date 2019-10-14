@@ -11,7 +11,7 @@
 <body>
 <div class="navbar">
   <a href="{$project_path}/" class="{if !isset($smarty.get.url)}active{/if}">Accueil</a>
-  <a href="{$project_path}/search" class="{if isset($smarty.get.url) && $smarty.get.url == 'search'}active{/if}">Recherche</a>
+  <a title="recherche par mots clés" href="{$project_path}/search" class="{if isset($smarty.get.url) && $smarty.get.url == 'search'}active{/if}">Recherche</a>
   <a href="{$project_path}/filter" class="{if isset($smarty.get.url) && $smarty.get.url == 'filter'}active{/if}">Pathologie</a>
   <a href="{$project_path}/info" class="{if isset($smarty.get.url) && $smarty.get.url == 'info'}active{/if}">Informations</a> 
 

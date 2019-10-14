@@ -161,7 +161,7 @@ margin-bottom: 5px;
 }
 
 .footer-menu {
-    background-color: #374f5a;
+    background-color: #cdf600;
     margin: 0;
     padding: 10px;
     color: #888;
@@ -169,14 +169,14 @@ margin-bottom: 5px;
 }
 
 .footer-menu a {
-    color: #f0f0f0;
+    color: #f00;
     text-decoration: none;
     margin-right: 10px;
 }
 
 .copyright {
     text-align: center;
-    background-color: #ddd;
+    background-color: #cdf600;
     margin: 0;
     padding: 5px;
 }
