@@ -28,13 +28,24 @@ class Register{
 
             $user = $model->register($login,$pass,$fname,$lname);
 
-            if($user != null){
-                $_SESSION['TIDAL_USER_ID'] = $user['id_User'];
-                $_SESSION['TIDAL_USER_NAME'] = $user['firstname'];
-                header('location:'.$GLOBALS['project_path'].'/');
-            }else{
-                $smarty->assign('error','/
-                ');
+            switch ($user) {
+                case 0:
+                    $smarty->assign('error','/Erreur de SGBD - inscription impossible.');
+                    break;
+
+                case 1:
+                    $smarty->assign('error','/Erreur - login déjà utilisé.');
+                    break;
+
+                case 2:
+                    $smarty->assign('error','/Erreur - le mot de passe doit contenir au moins 8 charactères dont une majuscule, un chiffre et un charactère spécial.');
+                    break;
+                
+                default:
+                    $_SESSION['TIDAL_USER_ID'] = $user['id_User'];
+                    $_SESSION['TIDAL_USER_NAME'] = $user['firstname'];
+                    header('location:'.$GLOBALS['project_path'].'/');
+                    break;
             }
         }
         $smarty->setTemplateDir(__DIR__ . '/../views/');//définir le chemin des templates(Views)

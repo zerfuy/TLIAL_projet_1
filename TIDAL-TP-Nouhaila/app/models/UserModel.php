@@ -16,11 +16,14 @@ class UserModel{
     function login($login,$password){
         $user = null;
 
-        $stmt = $this->conn->prepare("SELECT id_User,firstname FROM users WHERE login=:user AND password=:pass");
-        $stmt->execute(['user'=>$login,'pass'=>$password]); 
+        $stmt = $this->conn->prepare("SELECT id_User, password FROM users WHERE login=:user");
+        $stmt->execute(['user'=>$login]); 
         $user = $stmt->fetch();
-        return $user;
-    
+        $hashedPass = $user['password'];
+        echo "hash : $hashedPass";
+        if(password_verify($password, $hashedPass)){
+            return $user;
+        }
     }
 
     function register($login,$pass,$fname,$lname){
@@ -28,24 +31,34 @@ class UserModel{
         if (!preg_match("/^[a-zA-Z ]*$/",$login) || strlen($login) < 3) return null;
         if (!preg_match("/^[a-zA-Z ]*$/",$fname) || strlen($fname) < 3) return null;
         if (!preg_match("/^[a-zA-Z ]*$/",$lname) || strlen($lname) < 3) return null;
-        if(strlen($pass) < 3) return null;
+        if (!preg_match("/(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[?\/<~#`!@$%^&*()+=}|:\";\',>{ -])/",$pass)) return 2;
+        $hash = password_hash($pass, PASSWORD_DEFAULT); 
+        
+        // Add verif de doublons
+
+        $stmt = $this->conn->prepare("SELECT id_User,firstname FROM users WHERE login=:user");
+        $stmt->execute(['user'=>$login]); 
+        $user = $stmt->fetch();
+        if($user){
+            return '1';
+        }
 
         $query = "INSERT INTO users(login,password,firstname,name) VALUES(:login,:pass,:fname,:lname)";
         $stmt = $this->conn->prepare($query);
         $result = $stmt->execute([
             'login'=>$login,
-            'pass'=>$pass,
+            'pass'=>$hash,
             'fname'=>$fname,
             'lname'=>$lname
         ]);
-        echo "result : $result";
+        // echo "result : $result";
         if($result){
-            $stmt = $this->conn->prepare("SELECT id_User,firstname FROM users WHERE login=:user AND password=:pass");
-            $stmt->execute(['user'=>$login,'pass'=>$pass]); 
+            $stmt = $this->conn->prepare("SELECT id_User,firstname FROM users WHERE login=:user");
+            $stmt->execute(['user'=>$login]); 
             $user = $stmt->fetch();
             return $user;
         }else{
-            return null;
+            return 0;
         }
     }
 

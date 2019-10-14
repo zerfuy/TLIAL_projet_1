@@ -43,7 +43,7 @@
         </table> 
         {if isset($error)}
         <small class="error">{$error}</small>
-        <small class="info">Veuillez saisir obligatoirement le nom, prénom, login sous forme de caractère entre a et z.</small>
+        <small class="info"></small>
         {/if} 
     </form> 
 </div> 
