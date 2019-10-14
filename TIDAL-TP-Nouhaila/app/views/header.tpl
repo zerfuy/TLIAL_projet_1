@@ -3,7 +3,7 @@
 <head>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta charset="UTF-8">
-<link href="{$project_path}/public/css/style.css" rel="stylesheet" type="text/css" />
+<link id ="pagestyle" href="{$project_path}/public/css/style.css" rel="stylesheet" type="text/css" />
 <title> Ca pique mais c'est bon ! </title>
 <!-- On appelle la biliotheque JQUERY (Bibliotheque de JS)  -->
 <script src="{$project_path}/public/js/jquery-3.4.1.min.js"></script>
@@ -23,6 +23,24 @@
   {/if}
 
 
+  <!-- AAA CSS handling  -->
+  <script>
+    $(document).ready(function(){
+    $('#mode').click(function(){
+    if(document.getElementById('pagestyle').getAttribute('href')=="{$project_path}/public/css/style.css"){
+    $('#mode').attr('value','Normal')
+    document.getElementById('pagestyle').setAttribute('href','{$project_path}/public/css/styleAAA.css')
+    }
+    else
+    {
+    $('#mode').attr('value','AAA')
+    document.getElementById('pagestyle').setAttribute('href','{$project_path}/public/css/style.css')
+    }
+    })
+    });
+  </script>
+  <input type=button id="mode" title="Button to switch color Mode" class="btn btn-primary" value="AAA" >  </div>
+
 </div>
 {if isset($smarty.session.TIDAL_USER_ID)}
 <p class="user-name">
@@ -34,3 +52,4 @@ Bonsoir
 
 <b>{$smarty.session.TIDAL_USER_NAME}</b> vous êtes connecté!</p>
 {/if}
+
