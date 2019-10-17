@@ -12,19 +12,19 @@
         <select name="category" id="category">
             <option value="0">Selectioner la categorie</option>
             {foreach from=$categories item=$cat key=$index}
-                <option value="cat_{$index}">{$cat.name}</option>
+                <option value="{$cat.name}">{$cat.name}</option>
             {/foreach}
         </select>
         <select name="caracteristique" id="caracteristique">
         <option value="0">Selectioner le caractéristique</option>
         {foreach from=$categories item=$cat key=$index}
             {foreach from=$cat.values item=$val}
-                <option class="opt cat_{$index}" value="{$val}" style="display:none">{$val}</option>
+                <option class="opt cat_{$index}" value="{$val}">{$val}</option>
             {/foreach}
         {/foreach}
         </select>
-        <!-- le bouton recherche -->
-        <button type="submit">Recherche</button>
+        <!-- le bouton recherche 
+        <button type="submit">Recherche</button>-->
     </form>
     <!-- le résultat de la recherche qui représente le tableau, on peut le voir dans FilterResult.tpl  -->
     <div id="result">

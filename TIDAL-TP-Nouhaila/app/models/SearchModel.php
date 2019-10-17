@@ -16,7 +16,7 @@ class SearchModel{
     function getPathosByKeyword($keyword){
 
         $stmt = $this->conn->query("
-        SELECT patho.* FROM keywords,keysympt,symptome,symptpatho,patho 
+        SELECT distinct patho.* FROM keywords,keysympt,symptome,symptpatho,patho 
         WHERE keywords.idK = keysympt.idK
         AND keysympt.idS = symptome.idS
         AND symptome.idS = symptpatho.idS

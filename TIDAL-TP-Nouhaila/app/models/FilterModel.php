@@ -14,11 +14,23 @@ class FilterModel{
     
     }
 
-    public function getPathologies($nom = '',$caracts = "0"){//permet de récupérer les données de patho dans la BD
+    public function getPathologies($nom = '',$caracts = "0", $codes){//permet de récupérer les données de patho dans la BD
         
         $query = "SELECT *  FROM patho,meridien  WHERE meridien.code = patho.mer"; // requête 
 
         if($nom != "") $query .= " AND meridien.nom LIKE '%$nom%'"; // Si filtrer par nom 
+        $strcodes = "";
+        if($codes != 0){
+            foreach ($codes as $val) {
+                $strcodes .= "'";
+                $strcodes .= $val;
+                $strcodes .= "'";
+                $strcodes .= ", ";
+            }
+            $strcodes = substr($strcodes, 0, -2);
+            $query .= " AND patho.type in ($strcodes) ";
+        }
+        
         if($caracts != "0") $query .= " AND patho.desc LIKE '%$caracts%'";
         $query .= " limit 20";
         $stmt = $this->conn->query($query);
