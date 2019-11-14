@@ -20,7 +20,6 @@ class UserModel{
         $stmt->execute(['user'=>$login]); 
         $user = $stmt->fetch();
         $hashedPass = $user['password'];
-        echo "hash : $hashedPass";
         if(password_verify($password, $hashedPass)){
             return $user;
         }

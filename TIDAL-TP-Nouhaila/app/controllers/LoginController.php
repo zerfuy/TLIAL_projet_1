@@ -27,7 +27,7 @@ class Login{
                 $_SESSION['TIDAL_USER_NAME'] = $user['firstname'];//le first name reste dans la session et ne disparait qu'après la deconnexion
                 header('location:'.$GLOBALS['project_path'].'/search');//apres connexion, on part directement à la page recherche par mots clés
             }else{
-                $smarty->assign('error','les informations  sont incorrects!!!'); 
+                $smarty->assign('error','les informations  sont incorrectes!!!'); 
             }
         }
         $smarty->assign('project_path',$GLOBALS['project_path']);

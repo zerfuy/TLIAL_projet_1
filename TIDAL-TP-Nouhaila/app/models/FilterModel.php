@@ -17,8 +17,8 @@ class FilterModel{
     public function getPathologies($nom = '',$caracts = "0", $codes){//permet de récupérer les données de patho dans la BD
         
         $query = "SELECT *  FROM patho,meridien  WHERE meridien.code = patho.mer"; // requête 
-
         if($nom != "") $query .= " AND meridien.nom LIKE '%$nom%'"; // Si filtrer par nom 
+        $nom = "%".$nom."%";
         $strcodes = "";
         if($codes != 0){
             foreach ($codes as $val) {
@@ -33,7 +33,9 @@ class FilterModel{
         
         if($caracts != "0") $query .= " AND patho.desc LIKE '%$caracts%'";
         $query .= " limit 20";
-        $stmt = $this->conn->query($query);
+        $caracts = "%".$caracts."%";
+        $stmt = $this->conn->prepare($query);
+        $stmt->execute(['caracts'=>$caracts, 'strcodes'=>$strcodes, 'nom'=>$nom]);
         $pathologies = $stmt->fetchAll();
 
         return $pathologies;
