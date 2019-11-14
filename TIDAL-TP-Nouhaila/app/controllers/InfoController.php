@@ -7,10 +7,6 @@
 class Info{
     public function __construct()
     {
-        if(isset($_SESSION['TIDAL_USER_ID'])){// si on est connecté on ne peut pas retaper /login elle nous emmène directement à page d'accueil
-            header('location:'.$GLOBALS['project_path'].'/');// redirection à la page d'accueil
-            exit;
-        }
 
         include __DIR__ . "/../models/UserModel.php";//on fait appel à SearchModel 
         require_once __DIR__ . "/../../vendor/autoload.php";//on fait appel à Autoload pour utiliser SMARTY

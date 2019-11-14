@@ -14,7 +14,7 @@ class Filter{
                "codes"=>["me", "mi"]
             ],
             [
-               "name"=>"Pathologies d’organe/viscère",
+               "name"=>"Pathologies d’organe ou viscère",
                "values"=>[ "plein","chaud","vide","froid","inférieur","moyen","supérieur" ],
                "codes"=>["tfc", "tff", "tfc", "tfpc", "tfpci","tfpcm","tfpcs"]
             ],
@@ -42,7 +42,6 @@ class Filter{
    $codes = 0;
    $nom  = isset($_POST['nom']) ? $_POST['nom'] : '';//condition de "est ce que le nom exist"
 
-
    if(isset($_POST['category'])){
       foreach ($categories as $val){
          if(strcmp ( $_POST['category'], $val["name"]) == 0 ){
@@ -50,9 +49,8 @@ class Filter{
          }
       }
    }
-   var_dump($codes);
    $caracteristique  = isset($_POST['caracteristique']) ? $_POST['caracteristique'] : "0";//même chose
-   $pathologies = $model->getPathologies($nom,$caracteristique, $codes);// le controller envoie les paramètres qui sont à l'intérieur de la parenthèse à la fonction getPathologies qui se trouve dans le Model
+   $pathologies =  $model->getPathologies($nom,$caracteristique, $codes);// le controller envoie les paramètres qui sont à l'intérieur de la parenthèse à la fonction getPathologies qui se trouve dans le Model
    // Après c'est la variable pathologies qui récupère ces paramètres par les requêtes écrits dans la BD qui se trouve dans FilterModel.php
    
    $smarty = new Smarty();//on fait appel à la class SMARTY
@@ -73,7 +71,7 @@ class Filter{
                "codes"=>["me", "mi"]
             ],
             [
-               "name"=>"Pathologies d’organe/viscère",
+               "name"=>"Pathologies d’organe ou viscère",
                "values"=>[ "plein","chaud","vide","froid","inférieur","moyen","supérieur" ],
                "codes"=>["tfc", "tff", "tfc", "tfpc", "tfpci","tfpcm","tfpcs"]
             ],

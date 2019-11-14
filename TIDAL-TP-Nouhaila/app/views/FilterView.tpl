@@ -15,14 +15,6 @@
                 <option value="{$cat.name}">{$cat.name}</option>
             {/foreach}
         </select>
-        <select name="caracteristique" id="caracteristique">
-        <option value="0">Selectioner le caractéristique</option>
-        {foreach from=$categories item=$cat key=$index}
-            {foreach from=$cat.values item=$val}
-                <option class="opt cat_{$index}" value="{$val}">{$val}</option>
-            {/foreach}
-        {/foreach}
-        </select>
         <!-- le bouton recherche 
         <button type="submit">Recherche</button>-->
     </form>
